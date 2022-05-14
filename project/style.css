@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+.menu {
+    margin-bottom: 20px;
+}
+
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-item {
+    margin-bottom: 10px;
+}
+
+.product-image {}
