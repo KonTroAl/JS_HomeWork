@@ -4,6 +4,7 @@ class ProductList {
         this.goods = [];
         this._fetchProducts();
         this.render();
+        this.sumGoodsPrice();
     }
 
     _fetchProducts() {
@@ -21,6 +22,14 @@ class ProductList {
             const item = new ProductItem(product);
             block.insertAdjacentHTML("beforeend", item.render());
         }
+    }
+
+    sumGoodsPrice() {
+        let result = 0
+        for (let product of this.goods) {
+            result += parseInt(product.price)
+        }
+        console.log(result);
     }
 }
 
