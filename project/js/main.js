@@ -54,3 +54,48 @@ class ProductItem {
 }
 
 let list = new ProductList()
+
+class Basket {
+    constructor(container = '.products') {
+        this.container = container;
+        this.goods = [];
+        this._fetchProducts();
+        this.render();
+        this.sumBasketPrice();
+        this.deleteGood();
+        this.setCountOfGood();
+    }
+
+    _fetchProducts() {
+        // По нажатию кнопки "купить" товар должен наполнять массив this.goods
+    }
+
+    render() {
+        // Отображение корзины
+    }
+
+    sumBasketPrice() {
+        // Сумма товаров в корзине
+    }
+
+    deleteGood() {
+        // Удаление определенного товара из корзины
+    }
+
+    setCountOfGood() {
+        // Изменение количества определенного товара в корзине
+    }
+}
+
+class BasketItem {
+    constructor(product) {
+        this.title = product.title;
+        this.id = product.id;
+        this.price = product.price;
+        this.image = product.image;
+    }
+
+    render() {
+        // Рендер карточки товара в корзине
+    }
+}
