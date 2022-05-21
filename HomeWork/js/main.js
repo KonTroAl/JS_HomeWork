@@ -3,13 +3,13 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 class ProductList {
     constructor(container = '.products') {
         this.container = container;
-        this.goods = [];
+        this.allGoods = [];
         this._getProducts()
             .then(data => {
                 this.goods = data;
                 this.render()
+                this.sumGoodsPrice();
             });
-        this.sumGoodsPrice();
     }
 
     _getProducts() {
@@ -24,13 +24,14 @@ class ProductList {
         const block = document.querySelector(this.container);
         for (let product of this.goods) {
             const item = new ProductItem(product);
+            this.allGoods.push(item)
             block.insertAdjacentHTML("beforeend", item.render());
         }
     }
 
     sumGoodsPrice() {
         let result = 0
-        for (let product of this.goods) {
+        for (let product of this.allGoods) {
             result += parseInt(product.price)
         }
         console.log(result);
@@ -57,4 +58,4 @@ class ProductItem {
 
 
 let list = new ProductList();
-console.log(list);
+console.log(list.allGoods);
