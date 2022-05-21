@@ -68,7 +68,6 @@ class Basket {
             .then(data => {
                 this.goods = data
                 this.render();
-                this.sumBasketPrice();
                 this.deleteGood();
                 this.setCountOfGood();
             });
@@ -85,16 +84,20 @@ class Basket {
 
     render() {
         const block = document.querySelector(this.container);
-        console.log(this.goods)
         for (let product of this.goods.contents) {
             const item = new BasketItem(product);
             this.allGoods.push(item)
             block.insertAdjacentHTML("beforeend", item.render());
         }
+        block.insertAdjacentHTML("beforeend", `<p>Итого: ${this.sumBasketPrice()}</p> `);
     }
 
     sumBasketPrice() {
-        // Сумма товаров в корзине
+        let result = 0
+        for (let product of this.allGoods) {
+            result += parseInt(product.price)
+        }
+        return result
     }
 
     deleteGood() {
@@ -119,7 +122,6 @@ class BasketItem {
         <img src="${this.img}">
         <h3>${this.title}</h3>
         <p>${this.price}</p>
-        <button class="buy-btn">Купить</button>
     </div>`
     };
 }
