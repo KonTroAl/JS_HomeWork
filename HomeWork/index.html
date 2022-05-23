@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">E-shop</div>
+        <button id="BasketButton" class="btn-cart" type="button" data-tools="dialog"
+            data-target="#Basket">Корзина</button>
+    </header>
+    <main>
+        <div id="Wrap" class="basketWrap">
+            <div class="basketProducts" id="Basket" role="dialog">
+                <button id="BasketClose" class="buy-btn" data-action="modal-close">Close</button>
+            </div>
+        </div>
+
+
+        <div id="Products" class="products">
+
+        </div>
+    </main>
+    <!--beforestart-->
+    <p>
+        <!--afterstart-->
+        <span></span>
+        <!--beforeend-->
+    </p>
+    <!--afterend-->
+
+    <script src="js/main.js"></script>
+    <script>
+        let dialog_button = document.getElementById('BasketButton').addEventListener('click', function () {
+            // let basket = document.getElementById('Basket')
+            // basket.style.display = 'flex'
+            let basketWrap = document.getElementById('Wrap')
+            basketWrap.style.display = 'flex'
+            let products = document.getElementById('Products')
+            products.style.opacity = '50%'
+            products.style.pointerEvents = 'none'
+        });
+
+        let close_button = document.getElementById('BasketClose').addEventListener('click', function () {
+            let basketWrap = document.getElementById('Wrap')
+            basketWrap.style.display = 'none'
+            let products = document.getElementById('Products')
+            products.style.opacity = ''
+            products.style.pointerEvents = 'auto'
+        })
+    </script>
+</body>
+
+</html>
