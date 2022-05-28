@@ -4,9 +4,12 @@ const app = new Vue({
     el: '#app',
     data: {
         catalogUrl: '/catalogData.json',
+        cartUrl: '/getBasket.json',
         products: [],
         filtered: [],
+        cart: [],
         imgCatalog: 'https://via.placeholder.com/200x150',
+        imgCart: 'https://placehold.it/50x100',
         userSearch: '',
         show: false
     },
@@ -22,9 +25,15 @@ const app = new Vue({
                     console.log(error);
                 })
         },
+
         addProduct(product) {
             console.log(product.id_product);
+        },
+
+        removeProduct(product) {
+            console.log(product.id)
         }
+
     },
     mounted() {
         this.getJson(`${API + this.catalogUrl}`)
@@ -40,8 +49,16 @@ const app = new Vue({
                     this.products.push(el);
                     this.filtered.push(el);
                 }
-            })
+            });
+        this.getJson(`${API + this.cartUrl}`)
+            .then(data => {
+                for (let el of data.contents) {
+                    this.cart.push(el);
+                }
+            });
     }
+
+
 })
 
 // class List {
