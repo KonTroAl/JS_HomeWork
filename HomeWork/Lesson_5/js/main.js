@@ -11,32 +11,34 @@ const app = new Vue({
         show: false
     },
     methods: {
-        filter(value){
-         const regexp = new RegExp(value, 'i');
-         this.filtered = this.products.filter(product => regexp.test(product.product_name));
+        filter() {
+            const regexp = new RegExp(this.userSearch, 'i');
+            this.filtered = this.products.filter(product => regexp.test(product.product_name));
         },
-        getJson(url){
+        getJson(url) {
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
                     console.log(error);
                 })
         },
-        addProduct(product){
-                console.log(product.id_product);
+        addProduct(product) {
+            console.log(product.id_product);
         }
     },
-    mounted(){
-       this.getJson(`${API + this.catalogUrl}`)
-           .then(data => {
-               for(let el of data){
-                   this.products.push(el);
-               }
-           });
+    mounted() {
+        this.getJson(`${API + this.catalogUrl}`)
+            .then(data => {
+                for (let el of data) {
+                    this.products.push(el);
+                    this.filtered.push(el);
+                }
+            });
         this.getJson(`getProducts.json`)
             .then(data => {
-                for(let el of data){
+                for (let el of data) {
                     this.products.push(el);
+                    this.filtered.push(el);
                 }
             })
     }
