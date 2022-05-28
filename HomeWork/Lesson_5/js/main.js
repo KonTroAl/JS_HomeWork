@@ -5,6 +5,10 @@ const app = new Vue({
     data: {
         catalogUrl: '/catalogData.json',
         cartUrl: '/getBasket.json',
+        addToBasketUrl: '/addToBasket.json',
+        deleteFromBasketUrl: '/deleteFromBasket.json',
+        addProductResult: false,
+        removeProductResult: false,
         products: [],
         filtered: [],
         cart: [],
@@ -27,12 +31,26 @@ const app = new Vue({
         },
 
         addProduct(product) {
-            console.log(product.id_product);
+            let find = this.cart.find(el => el.id_product === product.id_product)
+            if (find) {
+                find.quantity++
+                Vue.set(this.cart, this.cart.indexOf(find, 0), find)
+            } else {
+                let productItem = product
+                productItem.quantity = 1
+                this.cart.push(product);
+            }
         },
 
         removeProduct(product) {
-            console.log(product.id)
-        }
+            let find = this.cart.find(el => el.id_product === product.id_product)
+            if (find.quantity > 1) {
+                find.quantity--
+                Vue.set(this.cart, this.cart.indexOf(find, 0), find)
+            } else {
+                this.cart.splice(find, 1);
+            }
+        },
 
     },
     mounted() {
@@ -54,6 +72,18 @@ const app = new Vue({
             .then(data => {
                 for (let el of data.contents) {
                     this.cart.push(el);
+                }
+            });
+        this.getJson(`${API + this.addToBasketUrl}`)
+            .then(data => {
+                if (data.result === 1) {
+                    this.addProductResult = true
+                }
+            });
+        this.getJson(`${API + this.deleteFromBasketUrl}`)
+            .then(data => {
+                if (data.result === 1) {
+                    this.removeProductResult = true
                 }
             });
     }
