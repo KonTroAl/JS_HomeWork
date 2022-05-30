@@ -34,21 +34,18 @@ const app = new Vue({
             let find = this.cart.find(el => el.id_product === product.id_product)
             if (find) {
                 find.quantity++
-                Vue.set(this.cart, this.cart.indexOf(find, 0), find)
+                // Vue.set(this.cart, this.cart.indexOf(find, 0), find)
             } else {
-                let productItem = product
-                productItem.quantity = 1
+                this.$set(product, 'quantity', 1)
                 this.cart.push(product);
             }
         },
 
         removeProduct(product) {
-            let find = this.cart.find(el => el.id_product === product.id_product)
-            if (find.quantity > 1) {
-                find.quantity--
-                Vue.set(this.cart, this.cart.indexOf(find, 0), find)
+            if (product.quantity > 1) {
+                product.quantity--;
             } else {
-                this.cart.splice(find, 1);
+                this.cart.splice(this.cart.indexOf(product), 1);
             }
         },
 
