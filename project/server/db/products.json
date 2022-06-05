@@ -2,21 +2,25 @@
   {
     "id_product": 124,
     "product_name": "Keyboard",
-    "price": 1600
+    "price": 1600,
+    "image": "images/keyboard.jpg"
   },
   {
     "id_product": 457,
     "product_name": "Gamepad",
-    "price": 3000
+    "price": 3000,
+    "image": "images/gamepad.jpg"
   },
   {
     "id_product": 123,
-    "product_name": "Ноутбук",
-    "price": 45600
+    "product_name": "Notebook",
+    "price": 45600,
+    "image": "images/notebook.jpg"
   },
   {
     "id_product": 456,
-    "product_name": "Мышка",
-    "price": 1000
+    "product_name": "Mouse",
+    "price": 1000,
+    "image": "images/mouse.jpg"
   }
 ]
