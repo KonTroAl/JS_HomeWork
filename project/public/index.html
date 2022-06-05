@@ -10,6 +10,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
 </head>
 
 <body>
@@ -20,13 +21,16 @@
                     <div class="navbar-brand">
                         K-Shop
                     </div>
+
                     <!-- <a class="navbar-brand">K-Shop</a> -->
                     <filter-el></filter-el>
+                    <cart ref="cart"></cart>
                 </div>
             </nav>
 
         </header>
         <main>
+            <error ref="error"></error>
             <products ref="products"></products>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

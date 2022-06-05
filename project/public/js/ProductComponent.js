@@ -33,7 +33,7 @@ Vue.component('products', {
 Vue.component('product', {
     props: ['product', 'img'],
     template: `
-    <div class="product-item card">
+    <div class="product-item">
         <img class="product-image card-img-top" :src="img" alt="Some img">
             <div class="card-body">
                 <h5 class="card-title">{{product.product_name}}</h5>
