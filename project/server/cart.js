@@ -15,7 +15,7 @@ let remove = (cart, req) => {
 };
 
 let del = (cart, req) => {
-    cart.contents.splice(cart.indexOf(req.body), 1);
+    cart.contents.splice(cart.contents.indexOf(req.body), 1);
     return JSON.stringify(cart, null, 4);
 };
 

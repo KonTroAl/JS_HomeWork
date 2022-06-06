@@ -41,9 +41,7 @@ const app = new Vue({
                     // console.log(error)
                     this.$refs.error.text = error;
                 })
-        },
-
-
+        }
     },
     mounted() {
 

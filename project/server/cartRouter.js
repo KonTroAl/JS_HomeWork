@@ -17,8 +17,9 @@ router.post('/', (req, res) => {
 });
 
 router.post('/delete', (req, res) => {
-    handler(req, res, 'delete', 'server/db/userCart.json');
+    handler(req, res, 'del', 'server/db/userCart.json');
 });
+
 router.put('/:id', (req, res) => {
     handler(req, res, 'change', 'server/db/userCart.json');
 });
