@@ -6,7 +6,7 @@
             "id_product": 123,
             "product_name": "Notebook",
             "price": 45600,
-            "quantity": 23,
+            "quantity": 15,
             "image": "images/notebook.jpg"
         },
         {
@@ -17,7 +17,7 @@
             "image": "images/mouse.jpg"
         },
         {
-            "quantity": 6,
+            "quantity": 8,
             "id_product": 457,
             "product_name": "Gamepad",
             "price": 3000,
