@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
     handler(req, res, 'add', 'server/db/userCart.json');
 });
 
-router.post('/delete', (req, res) => {
+router.delete('/:id/delete', (req, res) => {
     handler(req, res, 'del', 'server/db/userCart.json');
 });
 
