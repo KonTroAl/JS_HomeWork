@@ -13,11 +13,11 @@
             "id_product": 456,
             "product_name": "Mouse",
             "price": 1000,
-            "quantity": 17,
+            "quantity": 15,
             "image": "images/mouse.jpg"
         },
         {
-            "quantity": 1,
+            "quantity": 5,
             "id_product": 457,
             "product_name": "Gamepad",
             "price": 3000,

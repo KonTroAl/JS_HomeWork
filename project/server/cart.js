@@ -15,7 +15,8 @@ let remove = (cart, req) => {
 };
 
 let del = (cart, req) => {
-    cart.contents.splice(cart.contents.indexOf(req.body), 1);
+    let find = cart.contents.find(el => el.id_product === +req.params.id);
+    cart.contents.splice(cart.contents.indexOf(find), 1);
     return JSON.stringify(cart, null, 4);
 };
 
